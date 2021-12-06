@@ -2,10 +2,21 @@
   "name": "genx-rarity",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm start --prefix api",
+    "server": "nodemon",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm run build --prefix client",
+    "heroku-postbuild": "npm run build --prefix client",
+    "install": "npm --prefix api install api && npm --prefix client install client"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.4.0"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
